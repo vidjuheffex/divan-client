@@ -1,18 +1,30 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import {StyleSheet, css} from 'aphrodite';
+
+import general from '../css/general.js';
+
+const styles = StyleSheet.create({
+  input: {
+    "-webkit-appearance":"none",
+    padding: '.5rem',
+    border: 'none'
+  }
+});
 
 const LoginForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Username</label>
+        <label>Email</label>
         <div>
           <Field
-            name="username"
+            className={css(styles.input)}
+            name="email"
             component="input"
-            type="text"
-            placeholder="Username"
+            type="email"
+            placeholder="Email"
           />
         </div>
       </div>
@@ -20,6 +32,7 @@ const LoginForm = props => {
         <label>Password</label>
         <div>
           <Field
+            className={css(styles.input)}
             name="password"
             component="input"
             type="password"
@@ -27,8 +40,8 @@ const LoginForm = props => {
           />
         </div>
       </div>
-      <div>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
+      <div className={css(general.center)}>
+        <button className = {css(general.activeButton)} type="submit" disabled={pristine || submitting}>Submit</button>
       </div>
     </form>
   );

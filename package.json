@@ -25,7 +25,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "aphrodite": "^1.2.3",
+    "babel-polyfill": "^6.23.0",
     "history": "^4.6.3",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

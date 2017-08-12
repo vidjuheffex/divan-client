@@ -1,13 +1,17 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
+import {
+  SEND_SIGNUP_REQUEST,
+  SEND_LOGIN_REQUEST
+} from '../constants/ActionTypes';
 
-export function increment() {
-  return {
-    type: INCREMENT_COUNTER,
+function makeActionCreators(actionType){
+  return function(payload){
+    return {
+      type: actionType,
+      payload: payload
+    };
   };
 }
 
-export function decrement() {
-  return {
-    type: DECREMENT_COUNTER,
-  };
-}
+export const sendSignup = makeActionCreators(SEND_SIGNUP_REQUEST);
+export const sendLogin = makeActionCreators(SEND_LOGIN_REQUEST);
+

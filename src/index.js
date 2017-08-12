@@ -4,16 +4,17 @@ import { AppContainer } from 'react-hot-loader';
 import createHistory from 'history/createBrowserHistory';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
+import './index.css';
 
 const history = createHistory();
-const store = configureStore(history);
+export const store = configureStore(history);
 
 const rootEl = document.getElementById('root');
-const render = Component => ReactDOM.render( // eslint-disable-line react/no-render-return-value
+const render = Component => ReactDOM.render(
   <AppContainer>
     <Component store={store} history={history} />
   </AppContainer>,
-  rootEl,
+  rootEl
 );
 
 render(Root);
