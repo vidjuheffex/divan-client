@@ -20,9 +20,8 @@ export function* sendSignup(action) {
                      body: JSON.stringify(action.payload)
                    })
         .then(data => data.json())
-        .then(data => {console.log(data); return data;});
+        .then(data => {return data;});
     });
-    console.log(data);
     if (data.msg === "success") {
       yield put({type: "SIGNUP_SUCCEEDED", data});  
     }
@@ -50,7 +49,6 @@ export function* sendLogin(action) {
         .then(data => data.json())
         .then(data => { return data;});
     });
-    console.log(data);
     if (data.msg === "success") {
       yield put({type: "LOGIN_SUCCEEDED", data}); 
       store.dispatch(push("/"));

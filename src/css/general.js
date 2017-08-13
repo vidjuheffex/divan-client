@@ -8,7 +8,7 @@ export default StyleSheet.create({
     height: 'auto',
     display: 'inline-block',
     padding: '1rem',
-    borderRadius: '1rem',
+    borderRadius: '.25rem',
     boxShadow: '0rem 0rem .4rem 0rem rgba(0,0,0,.25)',
     backgroundColor: 'white'
   },
