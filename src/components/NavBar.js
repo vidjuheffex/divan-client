@@ -29,10 +29,17 @@ const styles = StyleSheet.create({
 
 const NavBar = (props) => (
   <div>
-  <div className={css(styles.NavBarOuter)}>
-    <Link className={css(styles.NavLink)} to="/dashboard">Dashboard</Link>
-  </div>
-  <div className={css(styles.NavBarSpacer)}></div>
+    <div className={css(styles.NavBarOuter)}>
+      <Link className={css(styles.NavLink)}
+            to="/dashboard">
+        Dashboard
+      </Link>
+      <Link className={css(styles.NavLink)}
+            to="/dashboard/admin">
+        Admin Area
+      </Link>
+    </div>
+    <div className={css(styles.NavBarSpacer)}></div>
   </div>
 );
 

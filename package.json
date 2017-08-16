@@ -1,17 +1,16 @@
 {
-  "name": "nw-react-boilerplate",
+  "name": "Divan",
   "version": "0.0.8",
-  "description": "NW.js + React.js Boilerplate",
+  "description": "Divan Client Application",
   "keywords": [
     "nw",
     "nw.js",
     "nwjs",
     "node-webkit",
-    "react",
-    "boilerplate"
+    "react"
   ],
   "bugs": {
-    "url": "https://github.com/naviapps/nw-react-boilerplate/issues"
+    "url": ""
   },
   "license": "MIT",
   "main": "index.html",
