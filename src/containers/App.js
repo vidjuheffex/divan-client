@@ -23,9 +23,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => { console.log("State: ", state);return ({
+const mapStateToProps = state => ({
   globalSettings: state.settings.globalSettings
-})};
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getGlobalSettings
