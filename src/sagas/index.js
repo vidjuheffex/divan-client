@@ -3,8 +3,15 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import {push} from 'react-router-redux';
 import {
   SEND_SIGNUP_REQUEST,
+  SIGNUP_SUCCEEDED,
+  SIGNUP_FAILED,
   SEND_LOGIN_REQUEST,
-  GET_GLOBAL_SETTINGS
+  LOGIN_SUCCEEDED,
+  LOGIN_FAILED,
+  GET_GLOBAL_SETTINGS,
+  GET_GLOBAL_SETTINGS_SUCCEEDED,
+  GET_GLOBAL_SETTINGS_FAILED,
+  
 } from '../constants/ActionTypes.js';
 import {store} from '../index.js';;
 
@@ -25,14 +32,14 @@ export function* getGlobalSettings(action) {
     });
     console.log(data);
     if (data.msg === 'success'){
-      yield put({type: "GET_GLOBAL_SETTINGS_SUCCEEDED", data});
+      yield put({type: GET_GLOBAL_SETTINGS_SUCCEEDED, data});
     }
     else {
-      yield put({type: "GET_GLOBAL_SETTINGS_FAILED", data});
+      yield put({type: GET_GLOBAL_SETTINGS_FAILED, data});
     }
   }
   catch (err){
-    yield put({type: "GET_GLOBAL_SETTINGS_FAILED", err});
+    yield put({type: GET_GLOBAL_SETTINGS_FAILED, err});
   }
 }
 
@@ -52,14 +59,14 @@ export function* sendSignup(action) {
         .then(data => {return data;});
     });
     if (data.msg === "success") {
-      yield put({type: "SIGNUP_SUCCEEDED", data});  
+      yield put({type: SIGNUP_SUCCEEDED, data});  
     }
     else {
-      yield put({type: "SIGNUP_FAILED", data});
+      yield put({type: SIGNUP_FAILED, data});
     }
     
   } catch (error) {
-    yield put({type: "SIGNUP_FAILED", error});
+    yield put({type: SIGNUP_FAILED, error});
   }
 }
 
@@ -79,15 +86,15 @@ export function* sendLogin(action) {
         .then(data => { return data;});
     });
     if (data.msg === "success") {
-      yield put({type: "LOGIN_SUCCEEDED", data}); 
+      yield put({type: LOGIN_SUCCEEDED, data}); 
       store.dispatch(push("/"));
     }
     else {
-      yield put({type: "LOGIN_FAILED", data});
+      yield put({type: LOGIN_FAILED, data});
     }
     
   } catch (error) {
-    yield put({type: "LOGIN_FAILED", error});
+    yield put({type: LOGIN_FAILED, error});
   }
 }
 
