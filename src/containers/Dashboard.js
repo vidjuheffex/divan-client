@@ -7,7 +7,7 @@ import Home from './Home.js';
 import Project from './Project.js';
 import NavBar from '../components/NavBar.js';
 import {withRouter} from 'react-router-dom';
-
+import Admin from './Admin.js';
 
 
 
@@ -16,6 +16,7 @@ const Dashboard = ({user, match}) => (
     <NavBar />
     <Route exact path = {`${match.url}`} component={Home} />
     <Route path={`${match.url}/project`} component={Project} />
+    <Route path={`${match.url}/admin`} component={Admin} />
   </div>
 );
 

@@ -3,21 +3,19 @@ import {store} from '../index.js';
 import {push} from 'react-router-redux';
 
 let initialState = {
-  currentUser: null
+  globalSettings: {
+    rootProjectPath: ""
+  }
 };
 
-export default function user(state = initialState, action) {
+export default function settings(state = initialState, action) {
   let newState;
   switch (action.type) {
-  case "SIGNUP_SUCCEEDED":
-    return state;
-  case "LOGIN_SUCCEEDED":
+  case "GET_GLOBAL_SETTINGS_SUCCEEDED":
     newState = _.cloneDeep(state);
-    newState.currentUser = action.data.user;
-    localStorage.token = action.data.token;
+    newState.globalSettings = action.data.globalSettings;
     return newState;
   default:
       return state;
   }
-  
 }
