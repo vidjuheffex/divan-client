@@ -1,9 +1,6 @@
 import {StyleSheet} from 'aphrodite';
 
 export default StyleSheet.create({
-  center: {
-    textAlign: 'center'
-  },
   panel:{
     height: 'auto',
     display: 'inline-block',
@@ -12,18 +9,27 @@ export default StyleSheet.create({
     boxShadow: '0rem 0rem .4rem 0rem rgba(0,0,0,.25)',
     backgroundColor: 'white'
   },
-  activeButton: {
-    backgroundColor: 'green',
-    marginTop: '.5rem',
-    marginBottom: '.5rem',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: '.5rem',
-    color: 'white',
-    border: 'none',
-    ":disabled":{
-      opacity: '.25'
-    }
+  //Panel overides
+  panelTop:{
+    borderRadius: '.25rem .25rem 0 0'
+  },
+  panelCore:{
+    borderRadius: '0 0 0 0',
+    padding: '1rem',
+    backgroundColor: 'white'
+  },
+  panelBottom:{
+    borderRadius: '0 0 .25rem .25rem'
+  },
+
+  //NOT AN OVERRIDE
+  panelBuffer: {
+    backgroundColor: 'white',
+    padding: 0,
+    margin: 0,
+    height: '1rem',
+    opacity: '.5',
+    borderRadius: '0 0 0 0'
   }
 });
 

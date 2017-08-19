@@ -5,11 +5,10 @@ import {bindActionCreators} from 'redux';
 import { Switch, Route, Redirect } from 'react-router';
 import Home from './Home.js';
 import Project from './Project.js';
+import ProjectCreator from './ProjectCreator';
 import NavBar from '../components/NavBar.js';
 import {withRouter} from 'react-router-dom';
 import Admin from './Admin.js';
-
-
 
 const Dashboard = ({user, match}) => (
   <div>
@@ -17,6 +16,7 @@ const Dashboard = ({user, match}) => (
     <Route exact path = {`${match.url}`} component={Home} />
     <Route path={`${match.url}/project`} component={Project} />
     <Route path={`${match.url}/admin`} component={Admin} />
+    <Route path={`${match.url}/admin/projectCreator`} component={ProjectCreator}/>
   </div>
 );
 

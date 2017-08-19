@@ -28,6 +28,7 @@
     "babel-polyfill": "^6.23.0",
     "history": "^4.6.3",
     "lodash": "^4.17.4",
+    "pascalcase": "^0.1.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -77,6 +78,7 @@
     "width": 800,
     "height": 500
   },
+  "chromium-args": "--enable-experimental-web-platform-features",
   "build": {
     "nwVersion": "0.24.0",
     "files": [

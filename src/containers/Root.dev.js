@@ -9,7 +9,7 @@ const Root = ({ store, history }) => ( // eslint-disable-line react/prop-types
     <ConnectedRouter history={history}>
       <div>
         <Routes />
-        <DevTools />
+    <DevTools />
       </div>
     </ConnectedRouter>
   </Provider>
