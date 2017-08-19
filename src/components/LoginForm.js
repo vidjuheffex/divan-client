@@ -2,7 +2,8 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import {StyleSheet, css} from 'aphrodite';
 
-import general from '../css/general.js';
+import inputs from '../css/inputs.js';
+import utils from '../css/utils.js';
 
 const styles = StyleSheet.create({
   input: {
@@ -40,8 +41,8 @@ const LoginForm = props => {
           />
         </div>
       </div>
-      <div className={css(general.center)}>
-        <button className = {css(general.activeButton)} type="submit" disabled={pristine || submitting}>Submit</button>
+      <div className={css(utils.center)}>
+        <button className = {css(inputs.button, inputs.confirmButton)} type="submit" disabled={pristine || submitting}>Submit</button>
       </div>
     </form>
   );
