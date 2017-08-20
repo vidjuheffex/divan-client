@@ -20,7 +20,7 @@ const ProjectCreatorForm = props => {
 
 
   const handleProjectNameChange = event => {
-    return (change("fsName", projectName ? pascalCase(projectName.replace("'", "")) : ""));
+    return (change("fsname", projectName ? pascalCase(projectName.replace("'", "")) : ""));
   };
 
   
@@ -46,7 +46,7 @@ const ProjectCreatorForm = props => {
         <div>
           <Field
             className={css(styles.input)}
-            name="fsName"
+            name="fsname"
             component="input"
             type="text"
             placeholder="ProjectName"
@@ -59,14 +59,14 @@ const ProjectCreatorForm = props => {
         <div>
           <Field
             className={css(styles.input)}
-            name="hRez"
+            name="hrez"
             component="input"
             type="number"
             />
           x
           <Field
             className={css(styles.input)}
-            name="vRez"
+            name="vrez"
             component="input"
             type="number"
             />
@@ -96,8 +96,8 @@ const ProjectCreatorForm = props => {
 let ProjectCreatorFormRaw = reduxForm({
   form: 'createproject', // a unique identifier for this form
   initialValues: {
-    hRez: 1920,
-    vRez: 1080,
+    hrez: 1920,
+    vrez: 1080,
     fps: 29.97
   }
 })(ProjectCreatorForm);
