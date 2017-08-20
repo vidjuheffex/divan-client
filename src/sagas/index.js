@@ -11,7 +11,9 @@ import {
   GET_GLOBAL_SETTINGS,
   GET_GLOBAL_SETTINGS_SUCCEEDED,
   GET_GLOBAL_SETTINGS_FAILED,
-  
+  SEND_PROJECT_CREATION_REQUEST,
+  PROJECT_CREATION_SUCCEEDED,
+  PROJECT_CREATION_FAILED
 } from '../constants/ActionTypes.js';
 import {store} from '../index.js';;
 
@@ -64,7 +66,6 @@ export function* sendSignup(action) {
     else {
       yield put({type: SIGNUP_FAILED, data});
     }
-    
   } catch (error) {
     yield put({type: SIGNUP_FAILED, error});
   }
@@ -98,8 +99,39 @@ export function* sendLogin(action) {
   }
 }
 
+export function* sendProjectCreationRequest(action){
+  try {
+    const data = yield call( ()=>{
+      console.log(localStorage.token);
+      console.log(JSON.stringify(action.payload));
+      return fetch("http://localhost:3001/admin/project",
+                   {
+                     method: "POST",
+                     headers : {
+                       'Accept'        : 'application/json',
+                       'Content-Type'  : 'application/json',
+                       'x-access-token' : localStorage.token
+                     },
+                     body: JSON.stringify(action.payload)
+                   })
+        .then(data => data.json())
+        .then(data => {return data;});
+    });
+    if(data.msg === "success") {
+      yield put({type: PROJECT_CREATION_SUCCEEDED, data});
+    }
+    else {
+      yield put({type: PROJECT_CREATION_FAILED, data});
+    }
+  }
+  catch (error){
+    yield put({type: PROJECT_CREATION_FAILED, error});
+  }
+}
+
 export default function* rootSaga() {
   yield takeEvery(SEND_SIGNUP_REQUEST, sendSignup);
   yield takeEvery(SEND_LOGIN_REQUEST, sendLogin);
   yield takeEvery(GET_GLOBAL_SETTINGS, getGlobalSettings);
+  yield takeEvery(SEND_PROJECT_CREATION_REQUEST, sendProjectCreationRequest);
 }

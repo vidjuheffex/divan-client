@@ -6,7 +6,7 @@ import {StyleSheet, css} from 'aphrodite';
 import general from '../css/general.js';
 import utils from '../css/utils.js';
 
-import {toggleProjectCreator} from '../actions/index.js';
+import {toggleProjectCreator, sendProjectCreationRequest} from '../actions/index.js';
 
 import {connect} from 'react-redux';
 
@@ -29,7 +29,14 @@ const styles = StyleSheet.create({
   }
 });
 
+
+
 let ProjectCreator = props => {
+
+  let handleSubmit = (values) => {
+    return props.sendProjectCreationRequest(values);
+  };
+  
   return (
     <div className={css(styles.factoryBlocker)}>
       <div className={css(styles.page)}>
@@ -38,7 +45,7 @@ let ProjectCreator = props => {
         </div>
         <div className={css(general.panelBuffer)}></div>
         <div className={css(general.panel, general.panelBottom, utils.fullWidth)}>
-          <ProjectCreatorForm toggleProjectCreator={props.toggleProjectCreator}/>
+          <ProjectCreatorForm onSubmit={handleSubmit} toggleProjectCreator={props.toggleProjectCreator}/>
         </div>
         
       </div>
@@ -51,6 +58,6 @@ let mapStateToProps = state => ({
 });
 
 let mapDispatchToProps = dispatch => {
-  return bindActionCreators({toggleProjectCreator}, dispatch);
+  return bindActionCreators({toggleProjectCreator, sendProjectCreationRequest}, dispatch);
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectCreator);
